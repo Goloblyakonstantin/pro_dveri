@@ -1,0 +1,130 @@
+@mixin section_margin
+{
+  margin: 0 10vw 0 10vw;
+}
+@mixin section_margin_media {
+  margin: 0 3vw 0 3vw;
+}
+@mixin margin_padding
+{
+  margin: 0;
+  padding: 0;
+}
+@mixin button_color
+{
+  border: solid 1px $col_hz;
+  border-radius: 6px;
+  font: inherit;
+  color: $col_white;
+  background-color: $col_hz;
+}
+@mixin button_color_hover
+{
+  color: $col_hz;
+  background-color: transparent;
+  cursor: pointer;
+  transition: $transition_time;
+}
+
+$col_white:#ffffff;
+$col_main:#57534b;
+$col_grey:#eaecec;
+$col_hz:#b2a667;
+$transition_time:0.2s;
+
+h1
+{
+  font-size: 50px;
+}
+h2
+{
+  font-size: 40px;
+}
+h3
+{
+  font-size: 30px;
+}
+h4
+{
+  font-size: 20px;
+}
+section
+{
+  padding: 30px 0 30px 0;
+}
+body
+{
+  @include margin_padding;
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight: 500;
+  color: $col_main;
+  font-size: 16px;
+}
+main
+{
+  width: 100vw;
+  .section-_0
+  {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: $col_white;
+    &-div_0
+    {
+      justify-self: center;
+      align-self: center;
+      width: 10vw;
+      img
+      {
+        width: 100%;
+      }
+    }
+  }
+}
+//MEDIA
+@media (max-width:900px) and (min-width:576px)
+{
+  main
+  {
+    .section-_0
+    {
+
+    }
+  }
+}
+
+@media (max-width:576px)
+{
+
+  h1
+  {
+    font-size: 8vw;
+  }
+  h2
+  {
+    font-size: 6vw;
+  }
+  h3
+  {
+    font-size: 5vw;
+  }
+  h4
+  {
+    font-size: 4.5vw;
+  }
+  section
+  {
+
+  }
+  body
+  {
+
+  }
+  main
+  {
+    .section-_0
+    {
+
+    }
+  }
+}

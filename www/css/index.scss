@@ -1,0 +1,521 @@
+@mixin section_margin
+{
+  margin: 0 10vw 0 10vw;
+}
+@mixin section_margin_media {
+  margin: 0 3vw 0 3vw;
+}
+@mixin margin_padding
+{
+  margin: 0;
+  padding: 0;
+}
+@mixin button_color
+{
+  border: solid 1px $col_hz;
+  border-radius: 6px;
+  font: inherit;
+  color: $col_white;
+  background-color: $col_hz;
+}
+@mixin button_color_hover
+{
+  color: $col_hz;
+  background-color: transparent;
+  cursor: pointer;
+  transition: $transition_time;
+}
+
+$col_white:#ffffff;
+$col_main:#57534b;
+$col_grey:#eaecec;
+$col_hz:#b2a667;
+$transition_time:0.2s;
+
+h1
+{
+  font-size: 50px;
+}
+h2
+{
+  font-size: 40px;
+}
+h3
+{
+  font-size: 30px;
+}
+h4
+{
+  font-size: 20px;
+}
+section
+{
+  padding: 30px  0 30px 0;
+}
+body
+{
+  @include margin_padding;
+  font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-weight: 500;
+  color: $col_main;
+  font-size: 16px;
+}
+main
+{
+  .section-_0
+  {
+    height: 80vh;
+    &-background
+    {
+      position: fixed;
+      top: 0;
+      width: 100vw;
+      z-index: -5;
+    }
+    &-in
+    {
+      @include section_margin;
+      h1
+      {
+
+      }
+      h2
+      {
+
+      }
+      ul
+      {
+        list-style: none;
+        li
+        {
+
+        }
+      }
+      button
+      {
+        @include button_color;
+        height: 50px;
+      }
+      button:hover
+      {
+        @include button_color_hover;
+      }
+    }
+  }
+  .section-_1
+  {
+    box-shadow: 0 0 10vh 10vh rgba(0, 0, 0, .5);
+    background-color: $col_white;
+    &-in
+    {
+      @include section_margin;
+      h3
+      {
+
+      }
+      p
+      {
+
+      }
+      &-in_0
+      {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        &-in
+        {
+          text-align: center;
+          img
+          {
+            width:80%;
+          }
+          h4
+          {
+
+          }
+          p
+          {
+
+          }
+          button
+          {
+            @include button_color;
+            height: 40px;
+
+          }
+          button:hover
+          {
+            @include button_color_hover;
+          }
+        }
+      }
+    }
+  }
+  .section-_2
+  {
+    background-color: $col_white;
+    &-in
+    {
+      @include section_margin;
+      h3
+      {
+
+      }
+      &-in_0
+      {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        &-in
+        {
+          text-align: center;
+          h4
+          {
+
+          }
+          p
+          {
+
+          }
+        }
+      }
+    }
+  }
+  .section-_3
+  {
+    background-color: $col_grey;
+    &-in
+    {
+      overflow: auto;
+      @include section_margin;
+      h3
+      {
+
+      }
+      img
+      {
+        float: right;
+        width: 30vw;
+      }
+      p
+      {
+
+      }
+      ul
+      {
+        list-style: none;
+        li
+        {
+          padding-bottom: 10px;
+        }
+        li::first-letter
+        {
+          font-weight: 900;
+        }
+      }
+    }
+  }
+  .section-_4
+  {
+    clear: right;
+    background-color: $col_white;
+    &-in
+    {
+      overflow: auto;
+      @include section_margin;
+      h3
+      {
+
+      }
+      img
+      {
+        float: right;
+        width: 30vw;
+      }
+      p
+      {
+
+      }
+      ul
+      {
+        list-style: none;
+        li
+        {
+          padding-bottom: 10px;
+        }
+      }
+    }
+  }
+  .section-_5
+  {
+    background-color: $col_grey;
+    &-in
+    {
+      text-align: center;
+      h3
+      {
+
+      }
+      p
+      {
+
+      }
+      input
+      {
+        height: 40px;
+        border-radius: 6px;
+      }
+      button
+      {
+        height: 45px;
+        @include button_color;
+      }
+      button:hover
+      {
+        @include button_color_hover;
+      }
+    }
+  }
+}
+
+//MEDIA
+
+@media (max-width:900px) and (min-width:576px)
+{
+  main
+  {
+    .section-_0
+    {
+      height: auto;
+      &-background
+      {
+        height: 50vh;
+      }
+    }
+  }
+}
+
+@media (max-width:576px)
+{
+
+  h1
+  {
+    font-size: 8vw;
+  }
+  h2
+  {
+    font-size: 6vw;
+  }
+  h3
+  {
+    font-size: 5vw;
+  }
+  h4
+  {
+    font-size: 4.5vw;
+  }
+  section
+  {
+
+  }
+  body
+  {
+
+  }
+  main
+  {
+    text-align: center;
+    .section-_0
+    {
+      height: auto;
+      &-background
+      {
+        left:-45vw;
+        height: 100vh;
+        width: auto;
+      }
+      &-in
+      {
+        @include section_margin_media;
+        h1
+        {
+
+        }
+        h2
+        {
+
+        }
+        ul
+        {
+          li
+          {
+
+          }
+        }
+        button
+        {
+
+        }
+        button:hover
+        {
+
+        }
+      }
+    }
+    .section-_1
+    {
+      &-in
+      {
+        @include section_margin_media;
+        h3
+        {
+
+        }
+        p
+        {
+          text-align: justify;
+        }
+        &-in_0
+        {
+          display: grid;
+          grid-template-columns: 1fr;
+          &-in
+          {
+            img
+            {
+              width:100%;
+            }
+            h4
+            {
+              margin: 10px;
+            }
+            p
+            {
+              text-align: center;
+              margin: 10px;
+            }
+            button
+            {
+              margin-bottom: 30px;
+            }
+            button:hover
+            {
+
+            }
+          }
+        }
+      }
+    }
+    .section-_2
+    {
+      &-in
+      {
+        @include section_margin_media;
+        h3
+        {
+
+        }
+        &-in_0
+        {
+          display: grid;
+          grid-template-columns: 1fr;
+          &-in
+          {
+            text-align: center;
+            h4
+            {
+
+            }
+            p
+            {
+
+            }
+          }
+        }
+      }
+    }
+    .section-_3
+    {
+      display: none;
+      &-in
+      {
+
+        h3
+        {
+
+        }
+        img
+        {
+
+        }
+        p
+        {
+
+        }
+        ul
+        {
+
+          li
+          {
+
+          }
+        }
+      }
+    }
+    .section-_4
+    {
+      &-in
+      {
+        @include section_margin_media;
+        h3
+        {
+
+        }
+        img
+        {
+          width: 100%;
+        }
+        p
+        {
+
+        }
+        ul
+        {
+          padding: 0 7vw 0 7vw;
+          li
+          {
+            text-align: justify;
+          }
+        }
+      }
+    }
+    .section-_5
+    {
+      background-color: $col_grey;
+      &-in
+      {
+        text-align: center;
+        h3
+        {
+
+        }
+        p
+        {
+
+        }
+        input
+        {
+          height: 40px;
+          border-radius: 6px;
+        }
+        button
+        {
+          height: 45px;
+          @include button_color;
+        }
+        button:hover
+        {
+          @include button_color_hover;
+        }
+      }
+    }
+  }
+}

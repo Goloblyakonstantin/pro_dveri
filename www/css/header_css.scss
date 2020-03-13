@@ -1,0 +1,239 @@
+@mixin margin_padding
+{
+  margin: 0;
+  padding: 0;
+}
+@mixin button_color
+{
+  border: solid 1px $col_main;
+  border-radius: 6px;
+  font: inherit;
+  color: $col_white;
+  background-color: $col_main;
+}
+@mixin button_color_hover
+{
+  color: $col_main;
+  background-color: transparent;
+  cursor: pointer;
+  transition: $transition_time;
+}
+
+$col_white:#ffffff;
+$col_main:#57534b;
+$col_grey:#eaecec;
+$col_hz:#b2a667;
+$transition_time:0.2s;
+
+header
+{
+  color: $col_main;
+  background-color: $col_white;
+  display: grid;
+  grid-template-columns: 180px 1fr 1fr 1fr 180px;
+  height: 60px;
+  align-content: center;
+  font-size: 18px;
+  box-shadow: 0 0 5vh 5vh rgba(0, 0, 0, .5);
+  img
+  {
+    height: 60px;
+  }
+  nav
+  {
+    input
+    {
+      display: none;
+    }
+    label
+    {
+      display: none;
+    }
+    grid-column: 3;
+    ul
+    {
+      list-style: none;
+      @include margin_padding;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(110px,1fr));
+      align-content: center;
+      height: 100%;
+      label
+      {
+        display: grid;
+        position: relative;
+      }
+      li
+      {
+        text-align: center;
+        border-right: 1px solid $col_main;
+        a
+        {
+          color: $col_main;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        a:hover
+        {
+          transition: $transition_time;
+          color: $col_hz;
+        }
+        .submenu
+        {
+          display: grid;
+          grid-template-columns: 1fr;
+          height: auto;
+          list-style: none;
+          position: absolute;
+          z-index: 10;
+          transform: scaleY(0);
+          transform-origin: 0 0;
+          transition: $transition_time;
+          :first-child
+          {
+            margin-top:19px;
+          }
+          li
+          {
+            margin: 0;
+            padding: 20px 5px 20px 5px;
+            text-align: left;
+            //border-top: 1px solid $col_main;
+            border-left: 0;
+            border-right: 0;
+          }
+        }
+      }
+      li:first-child
+      {
+        border-left: 1px solid $col_main;
+      }
+      li:hover .submenu
+      {
+        @media (min-width:576px)
+        {
+          transform: scaleY(1);
+          background-color: $col_white;
+        }
+      }
+    }
+  }
+  button
+  {
+    @include button_color;
+    grid-column: 5;
+    align-self: center;
+    margin-right: 10px;
+    height: 40px;
+  }
+  button:hover
+  {
+    @include button_color_hover;
+  }
+}
+
+// АДАПТИВ
+@media (max-width:900px) and (min-width:576px)
+{
+  header
+  {
+    grid-template-columns: 1fr;
+    img,button
+    {
+      display: none;
+    }
+    nav
+    {
+      grid-column: 1;
+    }
+  }
+}
+@media (max-width:576px)
+{
+  header
+  {
+    grid-template-columns: 1fr;
+    height: auto;
+    button
+    {
+      display: none;
+    }
+    nav
+    {
+      input
+      {
+        display: none;
+      }
+      label
+      {
+        position: absolute;
+        right: 0;
+        top:0;
+        display: block;
+      }
+      input.nav_menu:checked ~ .nav_menu_ul
+      {
+        display: block;
+      }
+      grid-column: 1;
+      ul
+      {
+        display: none;
+        grid-template-columns: 1fr;
+        align-content: center;
+        li
+        {
+          display: grid;
+          //border-top: 1px solid $col_main;
+          a
+          {
+            padding: 3vh 0 3vh 0;
+          }
+          .submenu
+          {
+            width: 100vw;
+            background-color: $col_white;
+            position: absolute;
+            li
+            {
+              padding: 2vh 0 2vh 0;
+              text-align: center;
+            }
+            :first-child
+            {
+              margin-top:0;
+            }
+          }
+          .submenu:hover header nav ul
+          {
+              height: auto;
+          }
+          input
+          {
+            display: none;
+          }
+          label
+          {
+            position: relative;
+          }
+          input.nav_menu_sub_0:checked ~ .submenu
+          {
+            transform: scaleY(1);
+            transition: $transition_time;
+            position: relative;
+            background-color: $col_grey
+          }
+          input.nav_menu_sub_0:checked .nav_menu_ul li
+          {
+            height: auto;
+            padding-bottom: 0;
+          }
+        }
+        li:first-child
+        {
+          border-left: 0;
+        }
+      }
+    }
+  }
+}
